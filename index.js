@@ -1,7 +1,7 @@
 const express = require('express');
 const multer = require('multer');
 const path = require('path');
-// const mysql = require('mysql2/promise'); 
+
 const { Pool } = require('pg')
 const bcrypt = require('bcrypt');;
 
@@ -74,7 +74,7 @@ app.get('/api/drivers', async (req, res) => {
   }
 });
 
-// Get drivers filtered by vehicle type
+
 app.get('/api/drivers', async (req, res) => {
   const { jenis_kendaraan } = req.query;
   let query = 'SELECT * FROM drivers';
@@ -156,7 +156,7 @@ app.post('/api/drivers/:id/location', async (req, res) => {
   }
 });
 
-// Get driver location
+
 app.get('/api/drivers/:id/location', async (req, res) => {
   const { id } = req.params;
 
