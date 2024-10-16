@@ -81,13 +81,13 @@ app.get('/api/drivers', async (req, res) => {
   const params = [];
 
   if (jenis_kendaraan) {
-    query += ' WHERE vehicle_type = $1';
+    query += ' WHERE vehicle_type = $1'; // Menambahkan filter jenis kendaraan
     params.push(jenis_kendaraan); 
   }
 
   try {
     const result = await pool.query(query, params);
-    res.json(result.rows);
+    res.json(result.rows); // Mengirim data hasil query sebagai JSON
   } catch (error) {
     res.status(500).json({ error: error.message });
   }
